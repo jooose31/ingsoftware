@@ -24,13 +24,17 @@
     $cemail = $line["correo"];
     $cpass = $line["pass"];
     $type = $line["tipo"];
+
     if (!$result) {
-      header("location: /ingsoftware/index.html");
-    }elseif ($type=="doctor") {
+      header("location: ingsoftware/index.html");
+
+    }elseif ($type=="d") {
       header("location: /ingsoftware/doctor/inicio.php");
-    }elseif ($type=="paciente") {
+
+    }elseif ($type=="a") {
       echo "paciente necesita terminarse";
-    }elseif ($type=="admin") {
+      echo "paciente";
+    }elseif ($type=="a") {
       echo "admin necesita terminarse";
     }
 
