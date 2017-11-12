@@ -684,10 +684,12 @@
                             <tbody>
 
                               <<?php
-
-
+                              session_start();
+                              // hay que agregar pacientes al doctor.
+                              // desplegar en tabla
 
                                ?>
+
 
                               <tr>
                                 <td>1</td>

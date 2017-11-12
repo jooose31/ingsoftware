@@ -29,12 +29,24 @@
       header("location: ingsoftware/index.html");
 
     }elseif ($type=="d") {
+      session_start();
+      $_SESSION['correo']  = $cemail;
+      $_SESSION['password']  = $cpass;
+      $_SESSION['type']  = $type;
       header("location: /ingsoftware/doctor/inicio.php");
 
     }elseif ($type=="a") {
+      session_start();
+      $_SESSION['correo']  = $cemail;
+      $_SESSION['password']  = $cpass;
+      $_SESSION['type']  = $type;
       echo "paciente necesita terminarse";
       echo "paciente";
     }elseif ($type=="a") {
+      session_start();
+      $_SESSION['correo']  = $cemail;
+      $_SESSION['password']  = $cpass;
+      $_SESSION['type']  = $type;
       echo "admin necesita terminarse";
     }
 
