@@ -16,27 +16,25 @@
     $email=$_GET['email'];
     $password=$_GET['password'];
 
-    $query = "SELECT correo, pass
+    $query = "SELECT *
           FROM usuarios
           WHERE '$email'=correo and pass = '$password'";
     $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
     $line = pg_fetch_array($result);
     $cemail = $line["correo"];
     $cpass = $line["pass"];
-    // echo "$email\n";
-    // echo "$password\n";
-
-    if ($email == $cemail And $password == $cpass ) {
-
-      // session_start();
-      // $_SESSION['email']  = '$email';
-      // $_SESSION['password'] = '$password';
-      header("location:/Software/index.html");
-      # code...
-      echo "hola, pase";
-    }else {
-      echo "error";
+    $type = $line["tipo"];
+    if (!$result) {
+      header("location: /ingsoftware/index.html");
+    }elseif ($type=="doctor") {
+      header("location: /ingsoftware/doctor/inicio.php");
+    }elseif ($type=="paciente") {
+      echo "paciente necesita terminarse";
+    }elseif ($type=="admin") {
+      echo "admin necesita terminarse";
     }
+
+
 
 
     //fin de la conexion a la bd------------------------------------------------------------
