@@ -117,7 +117,7 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
     <div class="container-fluid">
-        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">iMED</a> </div>
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="inicio.php">iMED</a> </div>
         <ul class="nav navbar-nav navbar-right">
             <!-- Notifications -->
             <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
@@ -250,7 +250,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li class="active open"><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
+                <li class="active open"><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Citas</span> </a>
                     <ul class="ml-menu">
                         <li><a href="doctor-schedule.html">Calendario</a></li>
@@ -267,7 +267,7 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
                     <ul class="ml-menu">
                         <li><a href="patients.html">Todos los pacientes</a></li>
-                        <li><a href="add-patient.html">Agregar Paciente</a></li>
+                        <li><a href="add-patient.php">Agregar Paciente</a></li>
                         <li><a href="patient-profile.html">Perfil del paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
                     </ul>
