@@ -12,7 +12,7 @@
 
     //fin de la conexion -------------------------------------------------------------------------
 
-    $fecha = $_GET['fecha'];
+    $fechas = $_GET['fecha'];
     $correop = $_GET['correo'];
     $presionart = $_GET['presionart'];
     $correop = $_GET['correo'];
@@ -24,11 +24,34 @@
     session_start();
     $scorreo=$_SESSION['correo'];
 
-    $query2 = "INSERT INTO pacdoc VALUES ('$correo','$scorreo')";
+    $query5 = "SELECT C.correop, C.fechahora
+    FROM cita C, paciente P
+    WHERE c.correop = '$correop' and C.correop = P.correop";
+    $result5 = pg_query($link, $query5) or die('Query failed: ' . pg_last_error());
+    $line = pg_fetch_array($result5);
+    $fech=$line['fechahora'];
+    // $fecha=explode(" ",$fech);
+    // $fecharu=$fecha[0];
+    // $nfecha=$fecha[0];
+
+
+    $query7 = "SELECT MAX(corr)  FROM receta";
+    $result7 = pg_query($link, $query7) or die('Query failed: ' . pg_last_error());
+    $line = pg_fetch_array($result7);
+    $numero=$line['max'];
+    $numero=$numero+1;
+
+    $query2 = "INSERT INTO receta VALUES ($numero,'$correop','$scorreo','$fechas','$informacion')";
     $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
 
+    $query3 = "UPDATE cita
+              SET temperatura = $temp, peso=$peso, presionart = $presionart, presionres = $presionres, estado = 'f'
+              WHERE fechahora='$fech' and correop ='$correop' and correod = '$scorreo'";
+    $result3 = pg_query($link, $query3) or die('Query failed: ' . pg_last_error());
 
-    header("location: /ingsoftware/doctor/patients.php");
+
+
+    header("location: /ingsoftware/doctor/inicio.php");
 
 
 

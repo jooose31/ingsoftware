@@ -47,19 +47,15 @@
       <i class="mfb-component__main-icon--active zmdi zmdi-close"></i>
     </a>
     <ul class="mfb-component__list">
+
       <li>
-        <a href="doctor-schedule.html" data-mfb-label="Calendario" class="mfb-component__button--child bg-blue">
-          <i class="zmdi zmdi-calendar mfb-component__child-icon"></i>
-        </a>
-      </li>
-      <li>
-        <a href="patients.html" data-mfb-label="Lista de pacientes" class="mfb-component__button--child bg-orange">
+        <a href="patients.php" data-mfb-label="Lista de pacientes" class="mfb-component__button--child bg-orange">
           <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
         </a>
       </li>
 
       <li>
-        <a href="examen.html" data-mfb-label="Exámenes" class="mfb-component__button--child bg-purple">
+        <a href="" data-mfb-label="Exámenes" class="mfb-component__button--child bg-purple">
           <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
         </a>
       </li>
@@ -121,7 +117,7 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
     <div class="container-fluid">
-        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">MedPa</a> </div>
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="inicio.php">MedPa</a> </div>
         <ul class="nav navbar-nav navbar-right">
 
             <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
@@ -176,7 +172,7 @@
 
                 <ul>
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
-                    <li><a data-placement="bottom" title="Ir a pacientes" href="patients.html"><i class="zmdi zmdi-account"></i></a></li>
+                    <li><a data-placement="bottom" title="Ir a pacientes" href="patients.php"><i class="zmdi zmdi-account"></i></a></li>
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
                     <li><a data-placement="bottom" title="Pantalla completa" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
@@ -188,26 +184,25 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
+                <li><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Cita</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="doctor-schedule.html">Calendario</a></li>
-                        <li><a href="book-appointment.html">Reservar cita</a></li>
+
+                        <li><a href="book-appointment.php">Reservar cita</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.html">Agregar receta</a></li>
+                        <li><a href="receta.php">Agregar receta</a></li>
 
                         <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->
-                        <li><a href="examen.html">Agregar examen</a></li>
 
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="patients.html">Todos los pacientes</a></li>
-                        <li><a href="add-patient.html">Agregar paciente</a></li>
+                        <li><a href="patients.php">Todos los pacientes</a></li>
+                        <li><a href="add-patient.php">Agregar paciente</a></li>
                         <!--<li><a href="patient-profile.html">Perfil del paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
                     </ul>

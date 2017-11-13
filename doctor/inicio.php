@@ -53,9 +53,7 @@
       </li>
 
       <li>
-        <a href="examen.html" data-mfb-label="Exámenes" class="mfb-component__button--child bg-purple">
-          <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
-        </a>
+
       </li>
     </ul>
   </li>
@@ -152,7 +150,6 @@
                     <ul class="ml-menu">
                         <li><a href="receta.php">Agregar receta</a></li>
                         <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->
-                        <li><a href="examen.html">Agregar examen</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
@@ -257,7 +254,7 @@
 
                               // session_start();
                               // $scorreo=$_SESSION['correo'];
-                              $query5 = "SELECT C.correop,P.nombre, C.fechahora
+                              $query5 = "SELECT C.correop,P.nombre, C.fechahora,C.estado
                               FROM cita C, paciente P
                               WHERE c.correod = '$scorreo' and C.correop = P.correop";
                               $result5 = pg_query($link, $query5) or die('Query failed: ' . pg_last_error());
@@ -265,19 +262,20 @@
                               while ($line = pg_fetch_array($result5)) {
                                 $nombre = $line['nombre'];
                                 $correo = $line['correop'];
+                                $estado = $line['estado'];
 
                                 $fechahora = $line['fechahora'];
+                                if($estado=="p"){
+                                  echo "<tr>";
+                                  echo "<td>$count</td>";
+                                  echo "<td>$nombre</td>";
+                                  echo "<td>$correo</td>";
+                                  echo "<td>$fechahora</td>";
 
-                                echo "<tr>";
-                                echo "<td>$count</td>";
-                                echo "<td>$nombre</td>";
-                                echo "<td>$correo</td>";
-                                echo "<td>$fechahora</td>";
-                                echo "<td><a href="."historial.php?correop=$correo". "><span class="."label label-danger".">Historial</span> </td>";
 
-                                echo "</tr>";
-                                $count++;
-
+                                  echo "</tr>";
+                                  $count++;
+                                }
 
 
                               }

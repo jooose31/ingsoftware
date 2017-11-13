@@ -52,9 +52,7 @@
       </li>
 
       <li>
-        <a href="examen.html" data-mfb-label="Exámenes" class="mfb-component__button--child bg-purple">
-          <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
-        </a>
+        
       </li>
     </ul>
   </li>
@@ -186,9 +184,9 @@
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.php">Agregar receta</a></li>
+                        <li><a href="receta.php">Agregar receta</a></li>
                         <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->
-                        <li><a href="examen.html">Agregar examen</a></li>
+                        <li><a href="examen.php">Agregar examen</a></li>
                     </ul>
                 </li>
                 <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
@@ -418,7 +416,7 @@
                                 echo "<td>$nombre</td>";
                                 echo "<td>$edad</td>";
                                 echo "<td>$correo</td>";
-                                echo "<td><span href=historial.php"." class="."label label-danger".">historial</span> </td>";
+                                echo "<td><a href="."historial.php?correop=$correo". "><span class="."label label-danger".">Historial</span> </td>";
 
                                 echo "</tr>";
                                 $count++;
