@@ -12,21 +12,11 @@
 
     //fin de la conexion -------------------------------------------------------------------------
 
-    $name = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $telefono = $_GET['telefono'];
-    $direccion = $_GET['direccion'];
     $genero = $_GET['genero'];
     $correo = $_GET['correo'];
-    $dpi = $_GET['dpi'];
-    $edad = $_GET['edad'];
+
     session_start();
     $scorreo=$_SESSION['correo'];
-    $nombre= $name . " " . $apellido;
-
-
-    $query1 = "INSERT INTO paciente VALUES ('$correo','$nombre',$edad,'$direccion',$telefono,'$genero')";
-    $result1 = pg_query($link, $query1) or die('Query failed: ' . pg_last_error());
 
     $query2 = "INSERT INTO pacdoc VALUES ('$correo','$scorreo')";
     $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());

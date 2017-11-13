@@ -43,13 +43,11 @@
       <i class="mfb-component__main-icon--active zmdi zmdi-close"></i>
     </a>
     <ul class="mfb-component__list">
-      <li>
-        <a href="doctor-schedule.html" data-mfb-label="Calendario" class="mfb-component__button--child bg-blue">
-          <i class="zmdi zmdi-calendar mfb-component__child-icon"></i>
+
         </a>
       </li>
       <li>
-        <a href="patients.html" data-mfb-label="Lista de pacientes" class="mfb-component__button--child bg-orange">
+        <a href="patients.php" data-mfb-label="Lista de pacientes" class="mfb-component__button--child bg-orange">
           <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
         </a>
       </li>
@@ -68,7 +66,7 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
     <div class="container-fluid">
-        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">MedPa</a> </div>
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="inicio.php">MedPa</a> </div>
         <ul class="nav navbar-nav navbar-right">
 
             <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
@@ -77,51 +75,89 @@
 </nav>
 <!-- #Top Bar -->
 <section>
+
+
+
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
         <!-- User Info -->
         <div class="user-info">
             <div class="admin-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
             <div class="admin-action-info"> <span>Bienvenido</span>
-                <h3>Doctor</h3>
+
+
+              <?php
+              $user= "postgres";
+              $password = "root";
+              $dbname = "pacidoc";
+              $port = "5432";
+              $host = "localhost";
+
+              $con = "host=$host port=$port dbname=$dbname user=$user password=$password";
+
+              $link = pg_connect($con) or die("Error en la conexion: ".pg_last_error());
+
+              //fin de la conexion -------------------------------------------------------------------------
+
+
+              session_start();
+              $scorreo=$_SESSION['correo'];
+
+              $query = "SELECT nombre
+                        FROM doctores
+                        WHERE correod = '$scorreo'";
+            $result = pg_query($link, $query) or die('Query failed: ' . pg_last_error());
+            $line = pg_fetch_array($result);
+            $doc = $line["nombre"];
+
+            echo "<h3>$doc</h3>";
+
+              //fin de la conexion a la bd------------------------------------------------------------
+              pg_close($link);
+
+
+
+               ?>
+
+
+
+
+
+
+
+
+
                 <ul>
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
-                    <li><a data-placement="bottom" title="Ir a pacientes" href="patients.html"><i class="zmdi zmdi-account"></i></a></li>
+                    <li><a data-placement="bottom" title="Ir a pacientes" href="patients.php"><i class="zmdi zmdi-account"></i></a></li>
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
                     <li><a data-placement="bottom" title="Pantalla de inicio" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
             </div>
-            <!--<div class="quick-stats">
-                <h5>Reporte de hoy</h5>
-                <ul>
-                    <li><span>0<i>Pacientes</i></span></li>
-                    <li><span>0<i>Pendientes</i></span></li>
-                    <li><span>0<i>Visitas</i></span></li>
-                </ul>
-            </div>-->
+
         </div>
         <!-- #User Info -->
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li class="active open"><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
+                <li class="active open"><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Citas</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="doctor-schedule.html">Calendario</a></li>
-                        <li><a href="book-appointment.html">Reservar cita</a></li>
+
+                        <li><a href="book-appointment.php">Reservar cita</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="recetas.html">Agregar receta</a></li>
+                        <li><a href="receta.php">Agregar receta</a></li>
                         <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->
                         <li><a href="examen.html">Agregar examen</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
                     <ul class="ml-menu">
-                        <li><a href="patients.html">Todos los pacientes</a></li>
+                        <li><a href="patients.php">Todos los pacientes</a></li>
                         <li><a href="add-patient.php">Agregar Paciente</a></li>
                         <!--<li><a href="patient-profile.html">Perfil del paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li>-->
@@ -186,7 +222,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2> Lista de pacientes</h2>
+                        <h2> Lista de citas</h2>
                         <ul class="header-dropdown m-r--5">
 
                         </ul>
@@ -197,69 +233,67 @@
                             <thead>
                               <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                                <th>Diseases</th>
+                                <th>Nombre</th>
+                                <th>correo</th>
+                                <th>fecha/hora</th>
+
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>Virginia </td>
-                                <td>Rose</td>
-                                <td>@Rose</td>
-                                <td><span class="label label-danger">Fever</span> </td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>Julie </td>
-                                <td>Gaylord</td>
-                                <td>@Julie </td>
-                                <td><span class="label label-info">Cancer</span> </td>
-                              </tr>
-								<tr>
-                                <td>1</td>
-                                <td>Virginia </td>
-                                <td>Rose</td>
-                                <td>@Rose</td>
-                                <td><span class="label label-danger">Fever</span> </td>
-                              </tr>
-								<tr>
-                                <td>1</td>
-                                <td>Virginia </td>
-                                <td>Rose</td>
-                                <td>@Rose</td>
-                                <td><span class="label label-danger">Fever</span> </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>Jacqueline </td>
-                                <td>Woods</td>
-                                <td>@Woods</td>
-                                <td><span class="label label-warning">Lakva</span> </td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>Jonathan </td>
-                                <td>Lewis</td>
-                                <td>@Jonathan </td>
-                                <td><span class="label label-success">Dental</span> </td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>Margaret </td>
-                                <td>Griffin</td>
-                                <td>@Margaret </td>
-                                <td><span class="label label-info">Cancer</span> </td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>Joseph </td>
-                                <td>Hunter</td>
-                                <td>@Hunter</td>
-                                <td><span class="label label-success">Dental</span> </td>
-                              </tr>
+
+                              <?php
+                              $user= "postgres";
+                              $password = "root";
+                              $dbname = "pacidoc";
+                              $port = "5432";
+                              $host = "localhost";
+
+                              $con = "host=$host port=$port dbname=$dbname user=$user password=$password";
+
+                              $link = pg_connect($con) or die("Error en la conexion: ".pg_last_error());
+
+                              //fin de la conexion -------------------------------------------------------------------------
+
+
+                              // session_start();
+                              // $scorreo=$_SESSION['correo'];
+                              $query5 = "SELECT C.correop,P.nombre, C.fechahora
+                              FROM cita C, paciente P
+                              WHERE c.correod = '$scorreo' and C.correop = P.correop";
+                              $result5 = pg_query($link, $query5) or die('Query failed: ' . pg_last_error());
+                              $count=1;
+                              while ($line = pg_fetch_array($result5)) {
+                                $nombre = $line['nombre'];
+                                $correo = $line['correop'];
+
+                                $fechahora = $line['fechahora'];
+
+                                echo "<tr>";
+                                echo "<td>$count</td>";
+                                echo "<td>$nombre</td>";
+                                echo "<td>$correo</td>";
+                                echo "<td>$fechahora</td>";
+                                echo "<td><a href="."historial.php?correop=$correo". "><span class="."label label-danger".">Historial</span> </td>";
+
+                                echo "</tr>";
+                                $count++;
+
+
+
+                              }
+
+
+
+                              //fin de la conexion a la bd------------------------------------------------------------
+                              pg_close($link);
+
+
+                               ?>
+
+
+
+
+
                             </tbody>
                           </table>
                         </div>

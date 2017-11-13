@@ -12,27 +12,18 @@
 
     //fin de la conexion -------------------------------------------------------------------------
 
-    $name = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $telefono = $_GET['telefono'];
-    $direccion = $_GET['direccion'];
-    $genero = $_GET['genero'];
-    $correo = $_GET['correo'];
-    $dpi = $_GET['dpi'];
-    $edad = $_GET['edad'];
+    $correo = $_GET['correop'];
+    $fech = $_GET['fechahoracita'];
+    $fecha=explode("T",$fech);
+    $fecharu=$fecha[0];
+    $nfecha=$fecha[0] . " " . $fecha[1];
     session_start();
     $scorreo=$_SESSION['correo'];
-    $nombre= $name . " " . $apellido;
 
-
-    $query1 = "INSERT INTO paciente VALUES ('$correo','$nombre',$edad,'$direccion',$telefono,'$genero')";
-    $result1 = pg_query($link, $query1) or die('Query failed: ' . pg_last_error());
-
-    $query2 = "INSERT INTO pacdoc VALUES ('$correo','$scorreo')";
+    $query2 = "INSERT INTO cita VALUES ('$correo','$scorreo',0,0,0,0,'p','$nfecha')";
     $result2 = pg_query($link, $query2) or die('Query failed: ' . pg_last_error());
 
-
-    header("location: /ingsoftware/doctor/patients.php");
+    header("location: /ingsoftware/doctor/inicio.php");
 
 
 
