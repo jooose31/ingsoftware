@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<title>:: iMED-agregar paciente ::</title>
+<title>:: MedPa-agregar paciente ::</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -65,7 +65,7 @@
       </li>
 
       <li>
-        <a href="reports.html" data-mfb-label="Reportes" class="mfb-component__button--child bg-purple">
+        <a href="examen.html" data-mfb-label="Exámenes" class="mfb-component__button--child bg-purple">
           <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
         </a>
       </li>
@@ -127,7 +127,7 @@
 <!-- Top Bar -->
 <nav class="navbar clearHeader">
     <div class="container-fluid">
-        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="inicio.php">iMED</a> </div>
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">MedPa</a> </div>
         <ul class="nav navbar-nav navbar-right">
             <!-- Notifications -->
 
@@ -150,7 +150,7 @@
                 <h3>Doctor</h3>
                 <ul>
                     <!--<li><a data-placement="bottom" title="Ir a bandeja de entrada" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
-                    <li><a data-placement="bottom" title="Ir a perfil" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>
+                    <li><a data-placement="bottom" title="Ir a pacientes" href="patients.html"><i class="zmdi zmdi-account"></i></a></li>
                     <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
                     <li><a data-placement="bottom" title="Pantalla de inicio" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
                 </ul>
@@ -169,25 +169,25 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Navegación Principal</li>
-                <li><a href="inicio.php"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
+                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Tablero</span></a></li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>Cita</span> </a>
                     <ul class="ml-menu">
                         <li><a href="doctor-schedule.html">Calendario</a></li>
                         <li><a href="book-appointment.html">Reservar una cita</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Cuenta</span> </a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-file-text"></i><span>Reportes</span> </a>
                     <ul class="ml-menu">
-                        <!--<li><a href="doctors.html">Todos los Doctores</a></li>
-                        <li><a href="add-doctor.html">Agregar Doctor</a></li>-->
-                        <li><a href="profile.html">Mi Perfil</a></li>
+                        <li><a href="recetas.html">Agregar receta</a></li>
+                        <!--<li><a href="add-doctor.html">Agregar Doctor</a></li>-->
+                        <li><a href="examen.html">Agregar examen</a></li>
                     </ul>
                 </li>
                 <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Pacientes</span> </a>
                     <ul class="ml-menu">
                         <li><a href="patients.html">Todos los Pacientes</a></li>
-                        <li class="active"><a href="add-patient.php">Agregar Paciente</a></li>
-                        <li><a href="patient-profile.html">Perfil del Paciente</a></li>
+                        <li class="active"><a href="add-patient.html">Agregar Paciente</a></li>
+                        <!--<li><a href="patient-profile.html">Perfil del Paciente</a></li>
                         <!--<li><a href="patient-invoice.html">Patient Invoice</a></li> -->
                     </ul>
                 </li>
@@ -198,7 +198,7 @@
                        <!-- <li> <a href="patient-invoice.html">Patient Invoice</a></li>
                     </ul>
                 </li>-->
-                <li><a href="reports.html"><i class="zmdi zmdi-file-text"></i><span>Reportes</span></a></li>
+                <!--<li><a href="reports.html"><i class="zmdi zmdi-file-text"></i><span>Reportes</span></a></li>
                 <!--<li><a href="widgets.html"><i class="zmdi zmdi-delicious"></i><span>Widgets</span></a></li>
                 <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Extra Pages</span> </a>
                     <ul class="ml-menu">
@@ -405,7 +405,6 @@
         </div>
     <!-- #END# Right Sidebar -->
 </section>
-
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -413,156 +412,133 @@
             <small class="text-muted">Bienvenido a iMED</small>
         </div>
         <div class="row clearfix">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="card">
-					<div class="header">
-						<h2>Informacion General <small>Descripción aquí...</small> </h2>
-						<ul class="header-dropdown m-r--5">
-							<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-								<!--<ul class="dropdown-menu pull-right">
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-								</ul>-->
-							</li>
-						</ul>
-					</div>
-					<div class="body">
-                        <div class="row clearfix">
-                            <div class="col-sm-4 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Nombre(s)">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Apellidos">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Número de teléfono">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="datepicker form-control" placeholder="Fecha de nacimiento">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Edad">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group drop-custum">
-                                    <select class="form-control show-tick">
-                                        <option value="">-- Género --</option>
-                                        <option value="10">Masculino</option>
-                                        <option value="20">Femenino</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Ingresar correo electónico">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <!--<form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
-                                    <div class="dz-message">
-                                        <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
-                                        <h3>Drop files here or click to upload.</h3>
-                                        <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em> </div>
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple />
-                                    </div>
-                                </form>-->
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <textarea rows="4" class="form-control no-resize" placeholder="Descripción"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <button type="submit" class="btn btn-raised g-bg-cyan">Enviar</button>
-                                <button type="submit" class="btn btn-raised">Cancelar</button>
-                            </div>
-                        </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Agregar nuevo paciente <small>Informacion aquí...</small> </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <!--<ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                </ul>-->
+                            </li>
+                        </ul>
                     </div>
-				</div>
-			</div>
-		</div>
-        <div class="row clearfix">
-			<div class="col-md-12 col-xs-12">
-				<div class="card">
-					<div class="header">
-						<h2>Información de registro <small>Descripción aquí...</small> </h2>
-						<!--<ul class="header-dropdown m-r--5">
-							<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
-								<ul class="dropdown-menu pull-right">
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-									<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-								</ul>
-							</li>
-						</ul>-->
-					</div>
-					<div class="body">
-                        <div class="row clearfix">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Nombre del doctor">
-                                    </div>
-                                </div>
-                            </div>
+          <form class="" action="agpaciente.php" method="get">
+            <div class="body">
+                          <div class="row clearfix">
+                              <div class="col-sm-4 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="nombre" class="form-control" placeholder="Nombre(s)">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-4 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="apellido" class="form-control" placeholder="Apellidos">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-4 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="telefono" class="form-control" placeholder="Número de teléfono">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row clearfix">
+                              <div class="col-sm-3 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="edad" class="form-control" placeholder="Edad">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="dpi" class="form-control" placeholder="DPI">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-12">
+                                  <div class="form-group drop-custum">
+                                      <select class="form-control show-tick" name="genero">
+                                          <option value="">-- Género --</option>
+                                          <option value="M">Masculino</option>
+                                          <option value="F">Femenino</option>
+                                      </select>
+                                  </div>
+                              </div>
 
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="Especialidad">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="datetimepicker form-control" placeholder="Fecha y hora">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <button type="submit" class="btn btn-raised g-bg-cyan">Enviar</button>
-                                <button type="submit" class="btn btn-raised">Cancelar</button>
+                              <div class="col-sm-4 col-xs-12">
+                                  <div class="form-group">
+                                      <div class="form-line">
+                                          <input type="text" name="correo" class="form-control" placeholder="Correo electronico">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+
+
+                              <div class="col-xs-12">
+                                  <button type="submit" class="btn btn-raised g-bg-cyan">Enviar</button>
+                              </div>
+
+
+
+
+
+
+                      </div>
+          </form>
+          <form class="" action="docpa.php" method="get">
+            <div class="row clearfix">
+<div class="col-md-12 col-xs-12">
+<div class="card">
+  <div class="header">
+    <h2>Paciente con cuenta <small>Agregar</small> </h2>
+
+  </div>
+  <div class="body">
+                <div class="row clearfix">
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="correo" class="form-control"  placeholder="Correo del paciente">
                             </div>
                         </div>
                     </div>
-				</div>
-			</div>
-		</div>
+
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-raised g-bg-cyan">Agregar</button>
+
+                    </div>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+          </form>
+
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
